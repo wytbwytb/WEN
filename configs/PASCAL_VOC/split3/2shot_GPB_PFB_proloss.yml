@@ -1,0 +1,58 @@
+_BASE_: "../../Base-RCNN-FPN.yaml"
+
+MODEL:
+  WEIGHTS: "/media/datasets/gpu17_models/Ours/checkpoints/voc/faster_rcnn/faster_rcnn_R_101_FPN_base3/model_reset_surgery.pth"
+  MASK_ON: False
+  RESNETS:
+    DEPTH: 101
+
+  BACKBONE:
+    FREEZE: False
+    FREEZE_AT: 5
+
+  PROPOSAL_GENERATOR:
+    FREEZE: False
+  RPN:
+    POST_NMS_TOPK_TRAIN: 2000
+
+  ROI_HEADS:
+    NAME: "NovelROIHeads"
+    NUM_CLASSES: 20
+    OUTPUT_LAYER: "CosineSimOutputLayers"
+    FREEZE_FEAT: False
+    BATCH_SIZE_PER_IMAGE: 256
+    IOU_THRESHOLDS: [0.4]
+    NOVEL_MODULE:
+      COPY_OPTION: True
+      IOU_THRESH: 0.7
+      PROTOTYPES_FUSE_ALPHA: 0.2
+      PROTOTYPES_FEATURE_FUSE_ALPHA: 0.2
+      PROLOSS_FACTOR: 0.3
+    FUSE_ALPHA: 0.1
+
+INPUT:
+  CROP:
+    ENABLED: TRUE
+  MIN_SIZE_TRAIN: (480, 512, 544, 576, 608, 640, 672, 704, 736, 768, 800)
+  MIN_SIZE_TEST: 800
+
+DATASETS:
+  SHOTS: 2
+  TRAIN: ('voc_2007_trainval_all3_2shot_seed0',)
+  TEST: ('voc_2007_test_all3',)
+
+SOLVER:
+  IMS_PER_BATCH: 6
+  BASE_LR: 0.001
+  GAMMA: 0.5
+  STEPS: (8000,12000)
+  MAX_ITER: 16000
+  CHECKPOINT_PERIOD: 1000
+  WARMUP_ITERS: 200
+
+TEST:
+  AUG:
+    ENABLED: True
+  EVAL_PERIOD: 1000
+
+OUTPUT_DIR: "/media/datasets/gpu17_models/Ours/checkpoints/voc/faster_rcnn/split3_2shot_GPB_PFB_proloss"
