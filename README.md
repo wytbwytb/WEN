@@ -37,8 +37,8 @@ Our experiments are conducted on two datasets: PASCAL VOC and X-ray FSOD.
 - [PASCAL VOC](http://host.robots.ox.ac.uk/pascal/VOC/): We use the train/val sets of PASCAL VOC 2007+2012 for training and the test set of PASCAL VOC 2007 for evaluation. We randomly split the 20 object classes into 15 base classes and 5 novel classes, and we consider 3 random splits. The splits can be found in [fsdet/data/datasets/builtin_meta.py](fsdet/data/datasets/builtin_meta.py). The default seed of PASCAL VOC that is used to report performace in research papers can be found [here](http://dl.yf.io/fs-det/datasets/).
 
 
-- [X-ray FSOD](https://pan.baidu.com/s/14Thd8Rkc-789mZMm3kjKNQ)(key:xray): We use the train set of X-ray FSOD for training and the test set of X-ray FSOD for evaluation. We randomly split the 20 object classes into 15 base classes and 5 novel classes, and we consider 3 random splits. The splits can be found in [fsdet/data/datasets/builtin_meta.py](fsdet/data/datasets/builtin_meta.py).
-(Note that in this repository, **the X-ray FSOD dataset is named RFS**). The default seed of X-ray FSOD that is used to report performace in research papers can be found in the folder: Xray FSOD/train/split.
+- X-ray FSOD: We use the train set of X-ray FSOD for training and the test set of X-ray FSOD for evaluation. We randomly split the 20 object classes into 15 base classes and 5 novel classes, and we consider 3 random splits. The splits can be found in [fsdet/data/datasets/builtin_meta.py](fsdet/data/datasets/builtin_meta.py).
+(Note that in this repository, **the X-ray FSOD dataset is named RFS**). The default seed of X-ray FSOD that is used to report performace in research papers can be found in the folder: Xray FSOD/train/split.(Download Link: If you want to access the dataset, please sign the <a href="./Commitment.pdf">PDF</a> file and send it to cvresearcher@163.com. After receiving your request, we will rely with the download link soon.)
 
 
 ## Code Structure
