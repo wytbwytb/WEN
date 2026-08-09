@@ -1,4 +1,5 @@
 # Few-shot X-ray Prohibited Item Detection: A Benchmark and Weak-feature Enhancement Network  (ACMMM 2022)
+[English](README.md) | [简体中文](readme_zh.md)
 
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/ucbdrive/few-shot-object-detection.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ucbdrive/few-shot-object-detection/context:python)
 This repo contains the implementation of our *state-of-the-art* fewshot object detector for X-ray prohibited items, described in our ACMMM 2022 paper, **Few-shot X-ray Prohibited Item Detection: A Benchmark and Weak-feature Enhancement Network**. WEN is built upon the codebase [FsDet v0.1](https://github.com/ucbdrive/few-shot-object-detection/tags), which released by an ICML 2020 paper [Frustratingly Simple Few-Shot Object Detection](https://arxiv.org/abs/2003.06957).
