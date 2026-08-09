@@ -3,6 +3,23 @@
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/ucbdrive/few-shot-object-detection.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ucbdrive/few-shot-object-detection/context:python)
 This repo contains the implementation of our *state-of-the-art* fewshot object detector for X-ray prohibited items, described in our ACMMM 2022 paper, **Few-shot X-ray Prohibited Item Detection: A Benchmark and Weak-feature Enhancement Network**. WEN is built upon the codebase [FsDet v0.1](https://github.com/ucbdrive/few-shot-object-detection/tags), which released by an ICML 2020 paper [Frustratingly Simple Few-Shot Object Detection](https://arxiv.org/abs/2003.06957).
 
+## Few-shot Training with Limited Data
+
+A key feature of this repository is its support for **efficient detector training with only a small amount of labeled data**. Users can directly control the number of training samples through predefined **K-shot configuration files**, without manually modifying the dataset or training pipeline.
+
+For example, the following command launches a **10-shot training task**, where only a limited number of annotated training samples specified by the 10-shot setting are automatically selected for model fine-tuning:
+
+```bash
+python tools/train_net.py --num-gpus 3 \
+        --config-file configs/RFS/split1/10shot_GPB_PFB_proloss.yml \
+        --opts MODEL.WEIGHTS WEIGHTS_PATH
+```
+
+The training data scale can be conveniently adjusted by selecting the corresponding configuration file, e.g., `1shot`, `2shot`, `3shot`, `5shot`, or `10shot`. The repository automatically loads the associated few-shot data split and completes model training under the specified shot setting.
+
+Therefore, users only need to **select the desired K-shot configuration from the command line** to rapidly train and adapt the detector with limited labeled samples, making the framework particularly suitable for practical scenarios where prohibited-item annotations are scarce or expensive to collect.
+
+
 ## Installation
 
 FsDet is built on [Detectron2](https://github.com/facebookresearch/detectron2). But you don't need to build detectron2 seperately as this codebase is self-contained. You can follow the instructions below to install the dependencies and build `FsDet`. WEN functionalities are implemented as `class`and `.py` scripts in FsDet which therefore requires no extra build efforts. 
