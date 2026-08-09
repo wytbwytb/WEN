@@ -1,4 +1,5 @@
 # 少样本X光违禁品检测：基准与弱特征增强网络（ACMMM 2022）
+[English](README.md) | [简体中文](readme_zh.md)
 
 本仓库包含我们发表于 **ACMMM 2022** 的论文 **Few-shot X-ray Prohibited Item Detection: A Benchmark and Weak-feature Enhancement Network** 中所提出的先进少样本X光违禁品目标检测方法的实现代码。
 
